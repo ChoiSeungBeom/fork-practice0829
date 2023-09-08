@@ -2,7 +2,7 @@ package bit701.day0907;
 
 public class Ex2_Array2 {
 
-	public static void main(String[] args) {
+	public  static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//2차원 배열 선언 방법
 		int [][]arr=new int[2][3];
