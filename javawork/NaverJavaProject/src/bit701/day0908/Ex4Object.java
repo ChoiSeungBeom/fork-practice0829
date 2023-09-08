@@ -32,7 +32,7 @@ public class Ex4Object {
 		//단 static 은 호출 가능
 		
 		Ex4Object.setMessage("Hello World!!");
-		//public 이므로 바로 출력 가능
+		//static 이므로 바로 출력 가능
 		System.out.println(Ex4Object.message);
 		
 		Ex4Object ex4=new Ex4Object();
