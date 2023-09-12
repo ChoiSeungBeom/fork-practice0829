@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.buttons{
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        div.buttons button{
+            width: 80px;
+            height: 40px;            
+        }
+
+        #photo{
+            border: 10px groove gold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 3개의 버튼, 점점작게,점점크게,랜덤
+    점점작게:사진이 5px 씩 줄어든다(50보다 클경우에만 변경)
+    점점크게:사진이 5px씩 커진다(600px보다 작을경우에만 변경)
+    랜덤:1~20 사이 난수를 구한후 해당 사진으로 변경하기
+    -->
+    <div class="buttons">
+        <button type="button" id="btnsmall">점점작게</button>
+        <button type="button" id="btnlarge">점점크게</button>
+        <button type="button" id="btnrandom">랜덤</button>    
+        <br>
+        현재 사진 너비 : <span id="fsize"></span>    
+    </div>
+    <img src="../연예인사진/12.jpg" style="width: 300px;" id="photo">
+
+    <script>
+        //photo
+        let p=document.getElementById("photo");
+
+        document.getElementById("btnsmall").onclick=function(){
+            //사진의 width 값 얻기
+            let w=parseInt(p.style.width);
+            //alert(w);
+            if(w>=50){
+                w-=5;
+                //사진의 width style 값 변경
+                p.style.width=w+"px";
+                fsize.innerText=w;
+            }
+        }
+/////1122
+        document.getElementById("btnlarge").onclick=function(){
+             //사진의 width 값 얻기
+             let w=parseInt(p.style.width);
+            //alert(w);
+            if(w<=600){
+                w+=5;
+                //사진의 width style 값 변경
+                p.style.width=w+"px";
+                fsize.innerText=w;
+            }
+        }
+
+        document.getElementById("btnrandom").onclick=function(){
+            //1~20 사이의 난수 발생
+            let rnd=parseInt(Math.random()*20)+1;
+            //이미지 변경
+            p.setAttribute("src",`../연예인사진/${rnd}.jpg`);
+        }
+    </script>
+</body>
+</html>
