@@ -40,7 +40,7 @@ class SubD extends SuperD
 	{
 		super(carName,carColor);
 		System.out.println("sub 의 두번째 생성자");
-		this.carPrice=4000;
+		this.carPrice=carPrice;
 	}
 	
 	@Override
@@ -66,6 +66,16 @@ public class Ex9_InheriConst {
 	}
 
 }
+
+
+//교재 284-상속
+
+//p290~p297
+
+
+
+
+
 
 
 
