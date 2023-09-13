@@ -50,7 +50,7 @@ class Television implements RemoteControl
 		}else {
 			this.volume=volume;
 		}
-		System.out.println("현재 볼륨은 "+volume+"입니다");
+		System.out.println("현재 볼륨은 "+this.volume+"입니다");
 	}
 	
 }
@@ -69,7 +69,7 @@ public class Book348 {
 		rc.setMute(true);
 		
 		RemoteControl rc2=null;//인터페이스라 생성할수 없다
-		rc2.setMute(false);//반드시 구현하는 클래스가 있어야만 호출이 가능하다
+		//rc2.setMute(false);//에러발생,반드시 구현하는 클래스가 있어야만 호출이 가능하다
 	}
 
 }
