@@ -7,6 +7,41 @@ interface Board
 	public void process();
 }
 //총 4개의 sub class 구현
+class Insert implements Board
+{
+	@Override
+	public void process() {
+		// TODO Auto-generated method stub
+		System.out.println("게시판에 글을 추가합니다");
+	}
+}
+
+class Delete implements Board
+{
+	@Override
+	public void process() {
+		// TODO Auto-generated method stub
+		System.out.println("게시판에 글을 삭제합니다");
+	}
+}
+
+class Update implements Board
+{
+	@Override
+	public void process() {
+		// TODO Auto-generated method stub
+		System.out.println("게시판에 글을 수정합니다");
+	}
+}
+
+class List implements Board
+{
+	@Override
+	public void process() {
+		// TODO Auto-generated method stub
+		System.out.println("게시판의 전체 글을 조회합니다");
+	}
+}
 
 
 
