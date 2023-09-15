@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -84,14 +86,14 @@ public class Ex6_FileMemoFrame  extends JFrame{
 				dlg.setVisible(true);
 				//System.out.println("디렉토리:"+dlg.getDirectory());
 				//System.out.println("파일명:"+dlg.getFile());
-				
+
 				//취소시 메서드 종료
-				if(dlg.getDirectory()==null)
+				if(dlg.getDirectory()==null) 
 					return;
-				
+
 				String fileName=dlg.getDirectory()+dlg.getFile()+".txt";
 				String memoText=memoArea.getText();//저장할 내용
-				
+
 				FileWriter fw=null;
 				try {
 					fw=new FileWriter(fileName);
@@ -108,7 +110,7 @@ public class Ex6_FileMemoFrame  extends JFrame{
 						//close 시 나올만한 Ecxception 두개 나열
 					}
 				}			
-				
+
 			}
 		});
 
@@ -118,6 +120,45 @@ public class Ex6_FileMemoFrame  extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				FileDialog dlg=new FileDialog(Ex6_FileMemoFrame.this,"파일열기",FileDialog.LOAD);
+				dlg.setVisible(true);
+				//System.out.println("디렉토리:"+dlg.getDirectory());
+				//System.out.println("파일명:"+dlg.getFile());
+
+				//취소시 메서드 종료
+				if(dlg.getDirectory()==null) 
+					return;
+
+				String fileName=dlg.getDirectory()+dlg.getFile();
+				
+				FileReader fr=null;
+				BufferedReader br=null;
+				try {
+					fr=new FileReader(fileName);
+					br=new BufferedReader(fr);
+					
+					//메모장의 기본 내용 지우기
+					memoArea.setText("");
+					
+					while(true)
+					{
+						String line=br.readLine();
+						if(line==null)
+							break;
+						
+						memoArea.append(line+"\n");
+					}
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}finally {
+					try {
+						br.close();
+						fr.close();
+					} catch (IOException|NullPointerException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}			
 
 			}
 		});
