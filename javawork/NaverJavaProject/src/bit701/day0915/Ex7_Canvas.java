@@ -70,8 +70,7 @@ public class Ex7_Canvas  extends JFrame{
 			g.drawImage(image1, 300, 220, this);
 			
 			//크기변경해서 출력
-			g.drawImage(image1, 300, 30, 100, 100, this);
-			
+			g.drawImage(image1, 300, 30, 100, 100, this);			
 		}
 	}
 
